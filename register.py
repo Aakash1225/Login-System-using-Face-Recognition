@@ -2,7 +2,7 @@ from base64 import b64decode
 import os
 import pickle
 
-def register_on_submit(email, image):
+def register_on_submit(email, image ):
     header, encoded = image.split(",", 1)
     try:
         try:

@@ -12,17 +12,45 @@
     <title>Registration</title>
 </head>
 <body>
+   {% block content %}
+   <a href="./"><button class = "btn btn-primary">Already Logged in</button></a>
    <h1>Register Yourself</h1>
    <form method="POST" accept-charset="utf-8" autocomplete="off">
       <div id="container">
           <video width="1280" height="720" id="video" autoplay></video>
       </div>
-      {{ form.hidden_tag() }}
-      {{ form.email.label }} {{ form.email() }} {% for error in form.email.errors %}{{ error }}{% endfor %}<br>
-      {{ form.url.label }} {{ form.url() }} {% for error in form.url.errors %}{{ error }}{% endfor %}<br>
-      {{ form.submit() }}
+      <div class="form-row">
+         {{ form.hidden_tag() }}
+         {{ form.email.label }} {{ form.email() }} {% for error in form.email.errors %}{{ error }}{% endfor %}
+         <div class="form-group col-md-3">
+           <label for="inputPassword4">Password</label>
+           <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+         </div>
+      </div>
+      <div class="form-row">
+         <div class="form-group col-md-6">
+           <label for="inputCity">City</label>
+           <input type="text" class="form-control" id="inputCity">
+         </div>
+         <div class="form-group col-md-4">
+           <label for="inputState">State</label>
+           <select id="inputState" class="form-control">
+             <option selected>Choose...</option>
+             <option>...</option>
+           </select>
+         </div>
+         <div class="form-group col-md-2">
+           <label for="inputZip">Zip</label>
+           <input type="text" class="form-control" id="inputZip">
+         </div>
+      </div>       
+      <br>
+      {{ form.url() }} {% for error in form.url.errors %}{{ error }}{% endfor %}<br>
+      {{ form.submit() }} 
+      <br>
    </form>
    <canvas id="myCanvas" width="320" height="240" hidden></canvas>
    <script type="text/javascript", src="/static/js/main.js"></script>
+   {% endblock %}
   </body>
 </html>

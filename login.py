@@ -7,8 +7,8 @@ import pickle
 def login_check(email, image):
     face_match = 0
     header, encoded = image.split(",", 1)
-    file_new = str(time.time_ns())
-    file_exist = str(time.time_ns())
+    file_new = str(email)
+    file_exist = str(email)
 
     with open(file_new + ".png", "wb") as f:
         f.write(b64decode(encoded))
